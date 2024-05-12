@@ -1,0 +1,140 @@
+﻿@* @{
+    string text = "Welcome to home page";
+    // string[] students = { "Emirastan", "Fexriyye", "Elmir", "Ilqar", "Nurlan" };
+
+}
+
+
+<h1>@text</h1> *@
+@using AspNet_MVC.ViewModels
+@model HomeVM
+
+@* <ul>
+    @foreach (var item in students)
+    {
+        <li>@item</li>
+    }
+</ul> *@
+
+@* <h1>@Model.Text</h1>
+<h1>@Model.AgeOfAykhan</h1>
+
+<ul>
+    @foreach (var item in Model.Students)
+    {
+        <li>@item</li>
+    }
+</ul> *@
+
+
+@* <ul>
+    @for (int i = 0; i < students.Length; i++)
+    {
+        <li>@students[i]</li>
+    }
+</ul> *@
+
+
+@* <ul>
+    @for (int i = 0; i < students.Count; i++)
+    {
+        <li>@students[i]</li>
+    }
+</ul> *@
+
+@* <ul>
+    @for (int i = 0; i < Model.Students.Count; i++)
+    {
+        <li>@Model.Students[i]</li>
+    }
+</ul>
+@foreach (var item in Model.Users)
+{
+    <h3>@(item.Id + "-" + item.Age)</h3>
+} *@
+
+
+@* Homework *@
+
+@* 1. Student modeli olacaq. Studentlerin ad soyad, email, age, telefon nomreleri(table-da)
+ *@
+<h1 style="color:brown">All Students:</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.StudentList)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.Age</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* 2. Studentleri age-e gore coxdan aza dogru siralamaq.(table-da) *@
+
+<h1 style="color:brown">All Students with order by age:</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.StudentList.OrderByDescending(m => m.Age))
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.Age</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* 3. Product modeli olacaq. Productlarin sayini gostermelisiz(h1) tag-in icinde *@
+
+<h1 style="color:brown">Number of Products:</h1>
+<h1>@Model.Products.Count</h1>
+
+<h1 style="color:brown">All Products:</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Color</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Color</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
